@@ -1,5 +1,5 @@
 print("probando")
 print("prueba estando en github")
-print("probando un conflicto"4
+print("probando un conflicto")
 print("hola mundo")
 print("enviando archivos del github al git")
