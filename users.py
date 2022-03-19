@@ -1,8 +1,9 @@
 def run():
     admin_users()
-    
+    celular()
+    generarpuntos()
 
-
+#Control de Acceso al Sistema
 def admin_users() :
     NEGRO    =  '\033[30m'
     ROJO      =  '\033[31m'
@@ -44,4 +45,52 @@ def admin_users() :
 Lo sentimos completo los tres intentos, USTED NO ESTA AUTORIZADO A INGRESAR AL SISTEMA""")
             print(RESTABLECER)
            
+#
+def celular():
+    celu = input("Ingrese el Celular del cliente : ")
+    i = 0
+    while i == 0:
+        if len(celu) == 9: 
+            tipo = celu.isdigit()
+            if tipo == True:
+                print("el numero " + str(celu) + " es correcto")
+                print("---------------------------------------")
+                print("---------------------------------------")
+                print("---------------------------------------")
+                i = 1    
+            else:
+                celu = input("El numero de celular ingresado es incorrecto vuelva ingresar :")
+                i = 0
+        else:
+            celu = input("El numero de celular ingresado es incorrecto vuelva ingresar :")
+            i = 0
+            
+ 
+
+
+def generapuntos():
+    a = True
+    compras = input("Ingresa monto de compra :")
+    while a == True:
+        c = compras.isdigit()    
+        if c == True:
+            r = int(compras)
+            g_ptos = int(r / 10)
+            if g_ptos >= 1:    
+                print("usted genero " + str(g_ptos) + "  puntos por esta compra")
+                print("---------------------------------------")
+                print("---------------------------------------")
+                print("---------------------------------------")
+                a = False
+            else:
+                print("Lo sentimos solo se generan puntos por cada 10 soles de compra")
+                print("---------------------------------------")
+                print("---------------------------------------")
+                print("---------------------------------------")
+                a = False
+        else:
+            a = True
+            compras = input("El monto ingresado no existe, por fvr volver a ingresar : ")
+
+
 run()
