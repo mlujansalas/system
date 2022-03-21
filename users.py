@@ -1,7 +1,7 @@
 def run():
     admin_users()
     celular()
-    generarpuntos()
+    generapuntos()
 
 #Control de Acceso al Sistema
 def admin_users() :
@@ -69,9 +69,9 @@ def celular():
 
 
 def generapuntos():
-    a = True
+    i = True
     compras = input("Ingresa monto de compra :")
-    while a == True:
+    while i == True:
         c = compras.isdigit()    
         if c == True:
             r = int(compras)
@@ -81,15 +81,15 @@ def generapuntos():
                 print("---------------------------------------")
                 print("---------------------------------------")
                 print("---------------------------------------")
-                a = False
+                i = False
             else:
                 print("Lo sentimos solo se generan puntos por cada 10 soles de compra")
                 print("---------------------------------------")
                 print("---------------------------------------")
                 print("---------------------------------------")
-                a = False
+                i = False
         else:
-            a = True
+            i = True
             compras = input("El monto ingresado no existe, por fvr volver a ingresar : ")
 
 
