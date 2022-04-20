@@ -1,10 +1,11 @@
 def run():
     admin_users()
-    celular()
-    generapuntos()
+    #celular()
+    #generapuntos()
 
 #Control de Acceso al Sistema
 def admin_users() :
+    crear_usuario={}
     NEGRO    =  '\033[30m'
     ROJO      =  '\033[31m'
     VERDE    =  '\033[32m'
@@ -27,13 +28,37 @@ def admin_users() :
         pasw_admin=getpass.getpass("Ingresa tu contrasena : ")    
         var=var+1
         if var<3 :
-            if admin =="admin" and pasw_admin=="admin" :
+            if admin =="admin" and pasw_admin=="admin" :#en este programa los datos de acceso para el administrador es proporcionado por el programador(se modificara posteriormente para que el administrador cambie su contraseña)
                 os.system("cls")
                 print("1.-Crear Usuario")
                 print("2.-Editar Usuario")
                 print("3.-Eliminar Usuario")
                 print("4.-Salir del Sistema")
+                opcion = int(input("Por fvr ingresar una opcion : "))
+                
+                if opcion == 1:
+                    r="S"
+                    while r =="S":
+                        os.system("cls")
+                        print("""====CREAR USUARIO====
+                        
+                        """)
+                        usuario_nuevo = input("Ingresar el nombre completo del nuevo Usuario : ")
+
+                        contrasena_nuevo = input("Ingresa tu contrasena : ")
+                        crear_usuario.update({contrasena_nuevo:usuario_nuevo})
+                        print("""
+                        
+                        """)
+                        print(AMARILLO,"""LISTO USUARIO AGREGADO
+                        
+                        """)
+                        print(RESTABLECER)
+                        r=input("""Si desea ingresar otro usuario presione S, y si no presione cualquier tecla : """)
+                        r=r.upper()
+                print(VERDE,crear_usuario)
                 var=4
+                print(RESTABLECER)
             else:
                 print ("Tienes ",3-var," intentos mas")
                 s=input("Usuario o Contraseña incorrecto, presione cual tecla para volver a ingresar o (S) para salir: ")
@@ -43,8 +68,7 @@ def admin_users() :
             print(AMARILLO + """
             
 Lo sentimos completo los tres intentos, USTED NO ESTA AUTORIZADO A INGRESAR AL SISTEMA""")
-            print(RESTABLECER)
-           
+            print(RESTABLECER)      
 #
 def celular():
     celu = input("Ingrese el Celular del cliente : ")
